@@ -9,7 +9,10 @@ function Navibar({loggedIn}) {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/" style={{color: "red"}}></Nav.Link>
+                            <Nav.Link href="/" style={{color: "red"}}>추가 및 검색</Nav.Link>
+                        </Nav>
+                        <Nav className="me-auto">
+                            <Nav.Link href="/list" style={{color: "blue"}}>수령자 리스트</Nav.Link>
                         </Nav>
                         <Nav>
                             {!loggedIn ? 

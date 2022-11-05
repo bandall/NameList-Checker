@@ -1,0 +1,19 @@
+.wrap_addlist {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.wrap_addlist_card {
+    width: 700px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid rgba(0,0,0,0.125);
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}
+
+.wrap_addlist_form {
+    padding: 15px;
+}

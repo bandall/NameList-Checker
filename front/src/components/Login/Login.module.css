@@ -6,13 +6,13 @@
     display: flex;
     justify-content: center;
     margin-top: 10%;
-    width: 100vw;
+    width: 92vw;
     height: 100vh;
     position: relative;
 }
   
 .Auth_form {
-    width: 420px;
+    width: 400px;
     box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
     padding-top: 30px;
     padding-bottom: 20px;

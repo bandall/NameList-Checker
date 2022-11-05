@@ -1,3 +1,3 @@
 export const home = (req, res) => {
-    res.send("Hi")
+    res.sendFile(process.env.ASSET_PATH + "/index.html");
 }

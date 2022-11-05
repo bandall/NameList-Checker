@@ -6,6 +6,7 @@ import MongoStore from "connect-mongo"
 import "dotenv/config"
 import "./db"
 import rootRouter from "./routers/rootRouter";
+import apiRouter from "./routers/apiRouter";
 
 const HTTP_PORT = 7000
 
@@ -19,8 +20,6 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         maxAge: 60 * 60 * 1000 * 24,
-        httpOnly: true,
-        secure: true
     },
     store: MongoStore.create({ mongoUrl: process.env.DB_URL })
 }));
@@ -32,10 +31,12 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({ 
-    origin: ['http://bandallgom.com:4000'],
+    origin: ['http://localhost:3000'],
     credentials: true,
 }));
-
+app.use("/static", express.static("assets"));
 app.use("/", rootRouter);
+app.use("/api", apiRouter);
+app.get("*", (req, res) => res.sendFile(process.env.ASSET_PATH + "/index.html"));
 
-app.listen(HTTP_PORT , () => console.log(`Server Listening on Port http://localhost:${HTTP_PORT}`));
+app.listen(HTTP_PORT , '0.0.0.0', () => console.log(`Server Listening on Port http://localhost:${HTTP_PORT}`));

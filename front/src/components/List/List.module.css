@@ -1,0 +1,33 @@
+.wrap_inner {
+    position: relative;
+    width: 90%;
+    height: 90vh;
+    margin: 0 auto;
+    padding-top: 3%;
+    background-clip: content-box;
+    align-items: center;
+    border-radius: 10px;
+    overflow: auto;
+    font-family: "돋음";
+}
+
+.table {
+    text-align: center;
+}
+
+.table_name {
+    width: 80px;
+}
+
+.table_phone {
+    width: 100px;
+    
+}
+
+.table_region {
+    width: 80px;
+}
+
+.table_date {
+    width: 140px;
+}

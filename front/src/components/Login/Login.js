@@ -1,12 +1,25 @@
 import { useState } from "react";
-import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import s from "./Login.module.css";
-function Login() {
+import { postLoggin } from "../functions";
+function Login({setLoggedIn}) {
+    const navigate = useNavigate();
+    const [password, setPassword] = useState("");
     
-    const onClick = async (event) => {
-        alert("Click")
+    const onChange = (event) => {
+        setPassword(event.target.value);
+    }
+    
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        const res = await postLoggin(password);
+        if(res) {
+            setLoggedIn(true);
+            localStorage.setItem("loggedIn", "true");
+            navigate("/");
+        }
+        
     }
     
     return(
@@ -16,14 +29,12 @@ function Login() {
                 <form className={s.Auth_form}>
                     <div className={s.Auth_form_content}>
                     <h3 className={s.Auth_form_title}>로그인</h3>
-                    
                     <div className="form-group mt-3">
-                        {/* <label>Password</label> */}
                         <Form.Floating>
                             <Form.Control
                             id="current-password"
                             type="password"
-                            onChange={onClick}
+                            onChange={onChange}
                             placeholder="Password"
                             required
                             />
@@ -31,7 +42,7 @@ function Login() {
                         </Form.Floating>
                     </div>
                     <div className="d-grid gap-2 mt-3">
-                        <button type="submit" onClick={onClick} className="btn btn-primary">
+                        <button type="submit" onClick={onSubmit} className="btn btn-primary">
                             제출
                         </button>
                     </div>
